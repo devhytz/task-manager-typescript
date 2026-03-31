@@ -1,6 +1,6 @@
 import type { Tarea } from "../models/tarea";
 
-const TareaRepository = {
+const tareaRepository = {
     añadirTarea,
     eliminarTarea,
     mostrarTareas,
@@ -31,4 +31,4 @@ function buscarTarea(id: number): Tarea | void {
     }
 }
 
-export {TareaRepository}
+export {tareaRepository}

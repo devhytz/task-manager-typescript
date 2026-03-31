@@ -1,23 +1,14 @@
 import type { Tarea } from "./models/tarea.ts";
-import { TareaRepository } from "./repository/tareaRepository.ts";
+import { tareaRepository } from "./repository/tareaRepository.ts";
+import { tareaService } from "./service/tareaService.ts";
 
-
-const tarea1: Tarea = {
+let tarea1: Tarea = {
     id: 1,
-    nombre: "Estudiar TypeScript",
-    descripcion: "Practicar repositorios",
+    nombre: "hola",
+    descripcion: "hola",
     pendiente: true
-};
-
-const tarea2: Tarea = {
-    id: 2,
-    nombre: "Estudiar Backtracking",
-    descripcion: "Practicar ejercicios",
-    pendiente: true
-};
-
-TareaRepository.añadirTarea(tarea1);
-TareaRepository.añadirTarea(tarea2);
-
-TareaRepository.eliminarTarea(1)
-console.log(TareaRepository.mostrarTareas())
+}
+let lista: Tarea[] = [];
+lista.push(tarea1)
+// tareaService.crearTarea(lista, "Cepillarme", "Debo cepillarme despues de comer")
+tareaService.eliminarTarea(lista, "s")
