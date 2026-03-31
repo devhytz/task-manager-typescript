@@ -6,8 +6,9 @@ function generarId(lista: Tarea[]): number {
     return id
 }
 
-function crearTarea(tareas: Tarea[], nombre: string, descripcion: string): void {
-    const id = generarId(tareas)
+function crearTarea(nombre: string, descripcion: string): void {
+    const tareas = tareaRepository.obtenerTareas();
+    const id = generarId(tareas);
     const pendiente = true // La tarea siempre se inicializará como pendiente
 
     if (nombre.length > 0 && nombre.length < 50) {
@@ -46,13 +47,22 @@ function eliminarTarea(tareas: Tarea[], nombre: string): void {
         
         }
     } else {
-        console.log("La lista de tareas se encuentra vacia.")
+        console.log("La lista de tareas se encuentra vacia. ❌")
+    }
+}
+
+function obtenerTareas() {
+    if (tareaRepository.obtenerTareas().length > 0) {
+        return tareaRepository.obtenerTareas()
+    } else {
+        console.log("La lista de traeas se encuentra vacia. ❌")
     }
 }
 
 const tareaService = {
     crearTarea,
-    eliminarTarea
+    eliminarTarea,
+    obtenerTareas
 };
 
 export { tareaService };
